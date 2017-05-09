@@ -1,0 +1,40 @@
+<html ng-app="app.todos">
+    <head>
+        <title> Node/ Angular Todos</title>
+        <!-- load cdn styles -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- load app styles -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- load cdn scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="assets/js/main/app.js"></script>
+    </head>
+    <body ng-controller="todoController">
+        <div class="container">
+            <div class="jumbotron text-center">
+                <h1> {{ appName }} <span class="label label-info">10</span></h1>
+            </div>
+
+            <div id="todo-list" class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="checkbox" data-ng-repeat="todo in todos">
+                        <input type="checkbox" ng-model="todo.isDone" ><span ng-class="{strike: todo.isDone}"> {{ todo.text }} </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="toto-form" class="row">
+                <div class="col-sm-8 col-sm-offset-2 text-center">
+                    <form>
+                        <div class="form-group">
+                            <input ng-model="formData.text" placeholder="What do you want to do !" type="text" class="form-control input-lg text-center">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
